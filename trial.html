@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Introduction to objects</title>
+        <script src="jquery-3.6.1.js"></script>
+        <script type="text/javascript">
+            function buttonClick() {
+                var str = document.getElementById("heading2").innerHTML;
+                document.getElementById("heading2").innerHTML = "change the text";
+                document.getElementById("heading3").innerHTML = str;
+                alert (str);
+            }
+            function function1() {
+            var slct = document.getElementById("selectbox");
+            alert(slct.options[slct.selectedIndex].value)
+           
+            
+             }
+            function function2() {
+                var para =document.getElementsByTagName("p");
+                    para[0].style.fontSize = 25;
+                    para[1].style.color = "red";
+                    para[2].style.fontWeight = "bold";
+                    para[3].style.fontStyle = "italic";
+                    para[4].style.backgroundColor = "red";
+            }
+            function function3() {
+          var bl = document.getElementsByClassName("blackclass");
+          var rd = document.getElementsByClassName("redclass")
+          for (i=0;i<bl.length;i++)
+            {
+                bl[i].style.color = "black";
+            };
+            for (i=0;i<rd.length;i++){
+                rd[i].style.color = "red";
+            };
+            
+        }
+        function function4() {
+          document.getElementById("img1").src =  "Srinivas Uragonda - Photo.jfif";         
+            
+        }
+        function function5() {
+            document.getElementById("img1").src = "Suba Vijayanathan.jpg"
+        }
+        function validate() {
+            var username = document.getElementById("uname");
+            var passwd = document.getElementById("pword");
+            if (username.value.trim()=="") {
+                alert("Username cannot be blank");
+                document.getElementById("uname").style.border= "solid 2px red";
+                document.getElementById("ulabel").style.visibility="visible";
+                return false;
+            } else if (passwd.value.trim()=="") {
+                alert("password cannot be blank");
+                document.getElementById("pword").style.border="solid 2px red";
+                return false;
+            } else if (passwd.value.length<5)
+            {
+                alert("password should be more than 5 characters");
+                passwd.style.border = "solid 3px red"
+                return false;
+            } 
+            else
+                {
+                    return true;
+                }
+        }
+        </script>
+    </head>
+    <body>
+        <button onclick="buttonClick()">Click Me</button>
+        <h2 id="heading2">Some random text</h2>
+        <h2 id="heading3">second text here</h2>
+        <select id="selectbox">
+            <option value="Option1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option3">Option 3</option>
+        </select>
+        <button id="button1" onclick="function1()">Click Me</button>
+        <p>This is paragraph 1</p>
+         <p>This is paragraph 2</p>
+         <p>This is paragraph 3</p>
+         <p>This is paragraph 4</p>
+         <p>This is paragraph 5</p>
+            <button id="button2" onclick="function2()">Change Styling</button>
+
+            <p id="pt1" class="redclass">This is paragraph 1</p>
+            <a id="at1" class="blackclass" href="https://www.google.com">sample link anchor element</a>
+            <p id="pt2" class="redclass">This is paragraph 1</p>
+            <a id="at2" class="redclass" href="https://www.google.com">sample link anchor element</a>
+            <p id="pt3" class="blackclass">This is paragraph 1</p>
+            <a id="at3" class="redclass" href="https://www.google.com">sample link anchor element</a>
+            <p id="pt4" class="redclass">This is paragraph 1</p>
+            <p id="pt5" class="blackclass">This is paragraph 1</p>
+            <a id="at4" class="redclass" href="https://www.google.com">sample link anchor element</a>
+        
+            <button id="button3" onclick="function3()">Change Styling</button>
+            <img id="img1" onmouseover="function4()" onmouseout="function5()" src="C:\Users\sachin.garg\Downloads\20220923_105146.jpg" width="200px">
+    
+            <form onsubmit="return validate()" action="welcome.html">
+                <input id="uname" placeholder="username" type="text" required>
+                <label id="ulabel" style="color:red; visibility:hidden">Invalid Username</label><br><br>
+                <input id="pword" placeholder="password" type="password" required> <br><br>
+        
+                <button type="submit" >Submit</button>
+          </form>
+        </body>
+</html>
